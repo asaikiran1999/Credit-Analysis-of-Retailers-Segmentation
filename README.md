@@ -7,4 +7,3 @@
 <h2>Concept used:</h2>
 <h4>ranking system for each retailer according to their RFM score<h4>
 
-<h1> <a href="https://asaikiran1999-credit-analysis-of-retailers-segmentat-app-am9zzz.streamlitapp.com/">click here</a>to view my working model</h1>
