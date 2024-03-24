@@ -7,7 +7,10 @@ from matplotlib import pyplot as plt
 
 st.title('Credit Analysis of Retailers Segmentation')
 filename = 'rfm_dataset2.sav'
-df = pickle.load(open(filename, 'rb'))
+try:
+    df = pd.read_pickle(filename)
+except Exception as e:
+    print("Error loading pickled file:", e)
 st.text('dataset loaded')
 
 
