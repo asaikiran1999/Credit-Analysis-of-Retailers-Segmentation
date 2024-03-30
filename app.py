@@ -9,7 +9,7 @@ st.write("""
 function keepAlive() {
     fetch(window.location.href, { mode: 'no-cors' });
 }
-setInterval(keepAlive, 5 * 60 * 1000); // Ping every 5 minutes
+setInterval(keepAlive, 5 * 60 * 1000);
 </script>
 """)
 st.title('Credit Analysis of Retailers Segmentation')
