@@ -59,7 +59,8 @@ st.pyplot(fig)
 st.text('Recency of Retailers')
 df2=df.sort_values(by=['recency'], ascending=False)
 st.dataframe(data=df2, width=None, height=None)
-x = st.text_input("Enter the retailer name","")
+x = st.text_input("Enter the retailer1 name","")
+y = st.text_input("Enter the retailer name2","")
 if st.button('analyse1'):
 	list2 = []
 	tuple1= tuple()
@@ -82,34 +83,33 @@ if st.button('analyse1'):
 	plt.title("RFM Score of "+str(tuple1[0]))
 	plt.show()
 	st.pyplot(fig)
-y = st.text_input("Enter the retailer name","")
-if st.button('analyse2'):
-	list2 = []
-	tuple1= tuple()
-	for j in range(df.shape[0]):
-	  if df['retailer_names'][j]==y:
-	    tuple1 = (y,df['recency_rank'][j],df['frequency_rank'][j],df['monetary_rank'][j])
+        list3 = []
+	tuple2= tuple()
+	for p in range(df.shape[0]):
+	  if df['retailer_names'][p]==y:
+	    tuple2 = (y,df['recency_rank'][p],df['frequency_rank'][p],df['monetary_rank'][p])
 	    break
 
 	fig = plt.figure()
 
-	langs = ['Rencency score', 'Frequency_score', 'Monetary_score']
-	students = [round(tuple1[1]),round(tuple1[2]),round(tuple1[3])]
-	plt.bar(langs,students)
+	langs2 = ['Rencency score', 'Frequency_score', 'Monetary_score']
+	students2 = [round(tuple2[1]),round(tuple2[2]),round(tuple2[3])]
+	plt.bar(langs2,students2)
 	xlocs=[i for i in range(0,3)]
 	plt.xticks(rotation='vertical')
-	for i, v in enumerate(students):
+	for i, v in enumerate(students2):
 	    plt.text(xlocs[i] - 0.25, v + 0.01, str(v))
 	plt.xlabel("x")
 	plt.ylabel("y")
-	plt.title("RFM Score of "+str(tuple1[0]))
+	plt.title("RFM Score of "+str(tuple2[0]))
 	plt.show()
 	st.pyplot(fig)
-st.write("""
-<script>
-function keepAlive() {
-    fetch(window.location.href, { mode: 'no-cors' });
-}
-setInterval(keepAlive, 5 * 60 * 1000);
-</script>
-""")
+	st.write("""
+	<script>
+	function keepAlive() {
+        fetch(window.location.href, { mode: 'no-cors' });
+	}
+	setInterval(keepAlive, 5 * 60 * 1000); // Ping every 5 minutes
+	</script>
+	""")
+
