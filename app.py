@@ -83,15 +83,11 @@ if st.button('analyse1'):
 	plt.title("RFM Score of "+str(tuple1[0]))
 	plt.show()
 	st.pyplot(fig)
-        list3 = []
 	tuple2= tuple()
 	for p in range(df.shape[0]):
 	  if df['retailer_names'][p]==y:
 	    tuple2 = (y,df['recency_rank'][p],df['frequency_rank'][p],df['monetary_rank'][p])
 	    break
-
-	fig = plt.figure()
-
 	langs2 = ['Rencency score', 'Frequency_score', 'Monetary_score']
 	students2 = [round(tuple2[1]),round(tuple2[2]),round(tuple2[3])]
 	plt.bar(langs2,students2)
