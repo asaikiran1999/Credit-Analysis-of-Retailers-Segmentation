@@ -4,14 +4,6 @@ import pandas as pd
 import pickle
 import json
 from matplotlib import pyplot as plt
-st.write("""
-<script>
-function keepAlive() {
-    fetch(window.location.href, { mode: 'no-cors' });
-}
-setInterval(keepAlive, 5 * 60 * 1000);
-</script>
-""")
 st.title('Credit Analysis of Retailers Segmentation')
 filename = 'rfm_dataset2.sav'
 try:
@@ -113,3 +105,11 @@ if st.button('analyse'):
 	plt.title("RFM Score of "+str(tuple1[0]))
 	plt.show()
 	st.pyplot(fig)
+st.write("""
+<script>
+function keepAlive() {
+    fetch(window.location.href, { mode: 'no-cors' });
+}
+setInterval(keepAlive, 5 * 60 * 1000);
+</script>
+""")
