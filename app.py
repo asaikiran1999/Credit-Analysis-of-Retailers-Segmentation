@@ -60,7 +60,7 @@ st.text('Recency of Retailers')
 df2=df.sort_values(by=['recency'], ascending=False)
 st.dataframe(data=df2, width=None, height=None)
 x = st.text_input("Enter the retailer name","")
-if st.button('analyse'):
+if st.button('analyse1'):
 	list2 = []
 	tuple1= tuple()
 	for j in range(df.shape[0]):
@@ -82,13 +82,13 @@ if st.button('analyse'):
 	plt.title("RFM Score of "+str(tuple1[0]))
 	plt.show()
 	st.pyplot(fig)
-x = st.text_input("Enter the retailer name","")
-if st.button('analyse'):
+y = st.text_input("Enter the retailer name","")
+if st.button('analyse2'):
 	list2 = []
 	tuple1= tuple()
 	for j in range(df.shape[0]):
-	  if df['retailer_names'][j]==x:
-	    tuple1 = (x,df['recency_rank'][j],df['frequency_rank'][j],df['monetary_rank'][j])
+	  if df['retailer_names'][j]==y:
+	    tuple1 = (y,df['recency_rank'][j],df['frequency_rank'][j],df['monetary_rank'][j])
 	    break
 
 	fig = plt.figure()
