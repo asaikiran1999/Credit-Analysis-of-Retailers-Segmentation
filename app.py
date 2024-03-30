@@ -4,7 +4,14 @@ import pandas as pd
 import pickle
 import json
 from matplotlib import pyplot as plt
-
+st.write("""
+<script>
+function keepAlive() {
+    fetch(window.location.href, { mode: 'no-cors' });
+}
+setInterval(keepAlive, 5 * 60 * 1000); // Ping every 5 minutes
+</script>
+""")
 st.title('Credit Analysis of Retailers Segmentation')
 filename = 'rfm_dataset2.sav'
 try:
@@ -60,6 +67,29 @@ st.pyplot(fig)
 st.text('Recency of Retailers')
 df2=df.sort_values(by=['recency'], ascending=False)
 st.dataframe(data=df2, width=None, height=None)
+x = st.text_input("Enter the retailer name","")
+if st.button('analyse'):
+	list2 = []
+	tuple1= tuple()
+	for j in range(df.shape[0]):
+	  if df['retailer_names'][j]==x:
+	    tuple1 = (x,df['recency_rank'][j],df['frequency_rank'][j],df['monetary_rank'][j])
+	    break
+
+	fig = plt.figure()
+
+	langs = ['Rencency score', 'Frequency_score', 'Monetary_score']
+	students = [round(tuple1[1]),round(tuple1[2]),round(tuple1[3])]
+	plt.bar(langs,students)
+	xlocs=[i for i in range(0,3)]
+	plt.xticks(rotation='vertical')
+	for i, v in enumerate(students):
+	    plt.text(xlocs[i] - 0.25, v + 0.01, str(v))
+	plt.xlabel("x")
+	plt.ylabel("y")
+	plt.title("RFM Score of "+str(tuple1[0]))
+	plt.show()
+	st.pyplot(fig)
 x = st.text_input("Enter the retailer name","")
 if st.button('analyse'):
 	list2 = []
